@@ -31,6 +31,6 @@ class FeedbackController extends Controller
 
     public function list()
     {
-        return view('feedback.list');
+        return view('feedback.list', ['feedbacks' => Auth::user()->feedbacks]);
     }
 }
