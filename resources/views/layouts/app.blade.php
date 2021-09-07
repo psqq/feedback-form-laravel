@@ -33,7 +33,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @auth
+                            @foreach ([
+                                [
+                                    'feedback-form',
+                                    __('Feedback form')
+                                ],
+                                [
+                                    'feedbacks',
+                                    __('List of feedbacks')
+                                ],
+                            ] as $navItem)
+                                <li class="nav-item{{ (Route::currentRouteName() == $navItem[0]) ? ' active' : '' }}">
+                                    <a class="nav-link" href="{{ route($navItem[0]) }}">
+                                        {{ $navItem[1] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

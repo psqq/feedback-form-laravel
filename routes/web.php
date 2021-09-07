@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/feedback-form', [FeedbackController::class, 'form'])->name('feedback-form');
+
+Route::get('/feedbacks', [FeedbackController::class, 'list'])->name('feedbacks');
 
 Auth::routes(['verify' => true]);
 
