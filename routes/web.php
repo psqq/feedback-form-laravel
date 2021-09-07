@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/feedback-form', [FeedbackController::class, 'form'])->name('feedback-form');
-
-Route::get('/feedbacks', [FeedbackController::class, 'list'])->name('feedbacks');
+Route::get('/feedback-form', [FeedbackController::class, 'form'])->name('feedback-form')->middleware('auth');
+Route::post('/feedbacks', [FeedbackController::class, 'store'])->name('feedbacks.store')->middleware('auth');
+Route::get('/feedbacks', [FeedbackController::class, 'list'])->name('feedbacks')->middleware('auth');
 
 Auth::routes(['verify' => true]);
 

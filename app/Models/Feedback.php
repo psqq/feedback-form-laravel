@@ -9,7 +9,20 @@ class Feedback extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'username',
+        'name',
+        'phone',
+        'company',
+        'message',
+        'user_id',
+    ];
+
     public function file(){
         return $this->hasOne('App\Models\File');
+    }
+
+    public function user(){
+        return $this->hasOne('App\Models\User');
     }
 }

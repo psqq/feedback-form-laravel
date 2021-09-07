@@ -20,9 +20,11 @@ class CreateFeedbackTable extends Migration
             $table->string('company');
             $table->string('name');
             $table->string('message');
-            $table->unsignedBigInteger('file_id');
+            $table->unsignedBigInteger('file_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('file_id')->references('id')->on('files');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
