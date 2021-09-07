@@ -8,6 +8,7 @@
 
 1. Установил `Laragon full`: https://laragon.org/download/
 2. Запускаем `Laragon`
+3. Жмем "Запустить все"
 1. Жмем "База данных" в `Laragon` и добавляем БД.
 4. Затем Терминал. Смотрим чтобы каталог был `www`
 5. Заргужаем проект: `git clone https://psqq@bitbucket.org/psqq/feedback-form.git`
@@ -17,7 +18,7 @@
 8. `npm run dev`
 9. `cp .env.example .env` и подставляем в `.env` настройки почты и имя бд `DB_DATABASE`.
 1. `php artisan migrate:fresh`
-3. Жмем "Запустить все"
+3. Жмем "Остановить" и "Запустить все".
 6. Переходим по адресу `http://feedback-form.test` и все должно работать
 
 ## Почта
