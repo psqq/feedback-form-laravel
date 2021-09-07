@@ -16,13 +16,14 @@ class Feedback extends Model
         'company',
         'message',
         'user_id',
+        'file_id',
     ];
 
     public function file(){
-        return $this->hasOne('App\Models\File');
+        return $this->belongsTo('App\Models\File');
     }
 
     public function user(){
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

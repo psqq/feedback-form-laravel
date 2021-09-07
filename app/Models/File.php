@@ -12,4 +12,8 @@ class File extends Model
         'name',
         'file_path'
     ];
+
+    public function feedbacks(){
+        return $this->hasMany('App\Models\Feedback');
+    }
 }

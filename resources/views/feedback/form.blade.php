@@ -12,7 +12,7 @@
                         {{Session::get('success')}}
                     </div>
                     @endif
-                    <form method="post" action="{{ route('feedbacks.store') }}">
+                    <form method="post" action="{{ route('feedbacks.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -61,6 +61,16 @@
                             @if ($errors->has('message'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('message') }}
+                            </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select file</label>
+                            <input type="file" name="file" class="form-control  {{ $errors->has('file') ? 'is-invalid' : '' }}" id="file">
+                            @if ($errors->has('file'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('file') }}
                             </div>
                             @endif
                         </div>
